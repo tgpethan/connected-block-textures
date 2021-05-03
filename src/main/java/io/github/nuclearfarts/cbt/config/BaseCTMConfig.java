@@ -90,8 +90,8 @@ public abstract class BaseCTMConfig<Self extends BaseCTMConfig<Self>> implements
 				case "sides":
 					faces.add(Direction.NORTH);
 					faces.add(Direction.EAST);
-					faces.add(Direction.WEST);
 					faces.add(Direction.SOUTH);
+					faces.add(Direction.WEST);
 					break;
 				case "top":
 					faces.add(Direction.UP);
@@ -100,9 +100,7 @@ public abstract class BaseCTMConfig<Self extends BaseCTMConfig<Self>> implements
 					faces.add(Direction.DOWN);
 					break;
 				case "all":
-					for(Direction d : Direction.values()) {
-						faces.add(d);
-					}
+					Collections.addAll(faces, Direction.values());
 					break;
 				default:
 					faces.add(Direction.valueOf(face.toUpperCase(Locale.ENGLISH))); //avoid the turkish bug
