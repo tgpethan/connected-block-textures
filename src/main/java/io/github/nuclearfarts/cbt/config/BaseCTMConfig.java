@@ -1,6 +1,5 @@
 package io.github.nuclearfarts.cbt.config;
 
-import com.google.common.base.Predicates;
 import io.github.nuclearfarts.cbt.ConnectedBlockTextures;
 import io.github.nuclearfarts.cbt.sprite.SpriteProvider;
 import io.github.nuclearfarts.cbt.tile.provider.TileProvider;
@@ -112,7 +111,7 @@ public abstract class BaseCTMConfig<Self extends BaseCTMConfig<Self>> implements
 			}
 			faceMatcher = faces::contains;
 		} else {
-			faceMatcher = Predicates.alwaysTrue();
+			faceMatcher = direction -> true;
 		}
 		
 		weight = Integer.parseInt(properties.getProperty("weight", "0"));
