@@ -8,7 +8,7 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.model.BakedModel;
 import net.minecraft.client.texture.Sprite;
 import net.minecraft.client.texture.SpriteAtlasTexture;
-import net.minecraft.client.util.math.Vector3f;
+import net.minecraft.util.math.Vec3f;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -36,21 +36,21 @@ public class CBTBakedModel extends ForwardingBakedModel {
 	
 	@Override
 	public void emitBlockQuads(BlockRenderView blockView, BlockState state, BlockPos pos, Supplier<Random> randomSupplier, RenderContext context) {
-		SpriteFinder spriteFinder = SpriteFinder.get(MinecraftClient.getInstance().getBakedModelManager().method_24153(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE));
+		SpriteFinder spriteFinder = SpriteFinder.get(MinecraftClient.getInstance().getBakedModelManager().getAtlas(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE));
 		context.pushTransform(quad -> {
 			for(SpriteProvider provider : spriteProviders) {
 				//use short-circuiting to our advantage to save the more expensive ones for last
 				if(provider.affectsDirection(quad.nominalFace()) && provider.affectsBlock(blockView, state, pos) && provider.affectsSprite(quad, spriteFinder)) {
 					//which way is up relative to the texture?
-					Vector3f lowV1 = new Vector3f();
+					Vec3f lowV1 = new Vec3f();
 					int lowV1I = -1;
-					Vector3f lowV2 = new Vector3f();
-					Vector3f lowU1 = new Vector3f();
+					Vec3f lowV2 = new Vec3f();
+					Vec3f lowU1 = new Vec3f();
 					int lowU1I = -1;
-					Vector3f lowU2 = new Vector3f();
+					Vec3f lowU2 = new Vec3f();
 					
-					Vector3f current = new Vector3f();
-					Vector3f center = new Vector3f();
+					Vec3f current = new Vec3f();
+					Vec3f center = new Vec3f();
 					
 					float lastLowV = Float.MAX_VALUE;
 					float lastLowU = Float.MAX_VALUE;
