@@ -66,10 +66,6 @@ public class ConnectedBlockTextures implements ModInitializer {
 		return new Identifier("connected_block_textures", string);
 	}
 	
-	public static void breakpointHack() {
-		System.out.println("bp");
-	}
-	
 	static {
 		RESOURCE_PACK_PRIORITY_MAP.defaultReturnValue(-1);
 	}

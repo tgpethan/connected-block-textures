@@ -26,7 +26,6 @@ public class FullCTMSpriteProvider extends ConnectingSpriteProvider {
 	
 	private int awfulBitHack(BlockState[][] blocks, BlockState state) {
 		blocks[1][1] = state;
-		//System.out.println(Arrays.deepToString(blocks));
 		int result = 0;
 		int i = 0;
 		for(int j = 0; j < blocks.length; j++) {

@@ -22,7 +22,6 @@ public class BasicTileProvider implements TileProvider {
 
 	@Override
 	public List<SpriteIdentifier> getIdsToLoad() {
-		//System.out.println(ids);
 		return ids;
 	}
 
